@@ -29,12 +29,12 @@
        <input type="text" name="prixFruit" value="${fruit.prixFruit}" class="form-control"/>
     </div>
     <div class="form-group">
-      <label class="control-label">Prix Fruit :</label>
+      <label class="control-label">Poids Fruit :</label>
        <input type="text" name="poidsFruit" value="${fruit.poidsFruit}" class="form-control"/>
     </div>	   
     <div class="form-group">
-      <label class="control-label"> Date création :</label>
-       <fmt:formatDate pattern="yyyy-MM-dd" value="${fruit.dateCreation}" var="formatDate" />
+      <label class="control-label"> Date paiement :</label>
+       <fmt:formatDate pattern="yyyy-MM-dd" value="${fruit.datePaiement}" var="formatDate" />
        <input type="date" name="date" value="${formatDate}" class="form-control"/>
     </div>	
     <div>

@@ -32,8 +32,8 @@ public class FruitController {
 	{
 		//conversion de la date
 		 SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-		 Date dateCreation = dateformat.parse(String.valueOf(date));
-		 fruit.setDateCreation(dateCreation);
+		 Date datePaiement = dateformat.parse(String.valueOf(date));
+		 fruit.setDatePaiement(datePaiement);
 		
 		Fruit saveFruit = fruitService.saveFruit(fruit);
 		String msg ="fruit enregistré avec Id "+saveFruit.getIdFruit();
@@ -72,8 +72,8 @@ public class FruitController {
 	{
 		//conversion de la date
 		 SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-		 Date dateCreation = dateformat.parse(String.valueOf(date));
-		 fruit.setDateCreation(dateCreation);
+		 Date datePaiement = dateformat.parse(String.valueOf(date));
+		 fruit.setDatePaiement(datePaiement);
 
 		 fruitService.updateFruit(fruit);
 		 List<Fruit> frs = fruitService.getAllFruits();

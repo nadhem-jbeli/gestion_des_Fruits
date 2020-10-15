@@ -14,16 +14,16 @@ private Long idFruit;
 private String nomFruit;
 private Double prixFruit;
 private Double poidsFruit;
-private Date dateCreation;
+private Date datePaiement;
 public Fruit() {
 super();
 }
-public Fruit(String nomFruit, Double prixFruit, Double poidsFruit, Date dateCreation) {
+public Fruit(String nomFruit, Double prixFruit, Double poidsFruit, Date datePaiement) {
 super();
 this.nomFruit = nomFruit;
 this.prixFruit = prixFruit;
 this.poidsFruit = poidsFruit;
-this.dateCreation = dateCreation;
+this.datePaiement = datePaiement;
 }
 public Long getIdFruit() {
 return idFruit;
@@ -49,16 +49,16 @@ return poidsFruit;
 public void setPoidsFruit(Double poidsFruit) {
 this.poidsFruit = poidsFruit;
 }
-public Date getDateCreation() {
-return dateCreation;
+public Date getDatePaiement() {
+return datePaiement;
 }
-public void setDateCreation(Date dateCreation) {
-this.dateCreation = dateCreation;
+public void setDatePaiement(Date datePaiement) {
+this.datePaiement = datePaiement;
 }
 @Override
 public String toString() {
 return "Fruit [idFruit=" + idFruit + ", nomFruit=" +
 nomFruit + ", prixFruit=" + prixFruit+ ", poidsFruit=" + poidsFruit
-+ ", dateCreation=" + dateCreation + "]";
++ ", datePaiement=" + datePaiement + "]";
 }
 }

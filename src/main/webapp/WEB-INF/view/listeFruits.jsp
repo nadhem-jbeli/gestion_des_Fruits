@@ -22,7 +22,7 @@
        
       <table class="table table-striped">
         <tr>
-          <th>ID</th><th>Nom Fruit</th><th>Prix</th><th>Poids</th><th>Date Création</th><th>Suppression<th>Edition</th>
+          <th>ID</th><th>Nom Fruit</th><th>Prix</th><th>Poids</th><th>Date Paiement</th><th>Suppression<th>Edition</th>
          </tr>
          <c:forEach items="${fruits}" var="f">
            <tr>
@@ -30,7 +30,7 @@
               <td>${f.nomFruit }</td>
               <td>${f.prixFruit }</td>
               <td>${f.poidsFruit }</td>
-                <td><fmt:formatDate pattern="dd/MM/yyyy" value="${f.dateCreation}" /></td>
+                <td><fmt:formatDate pattern="dd/MM/yyyy" value="${f.datePaiement}" /></td>
               <td><a onclick="return confirm('Etes-vous sûr ?')" href="supprimerFruit?id=${f.idFruit }">Supprimer</a></td>
                <td><a href="modifierFruit?id=${f.idFruit }">Edit</a></td>
            </tr>
