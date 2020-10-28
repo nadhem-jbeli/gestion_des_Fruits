@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -42,22 +43,34 @@ public class FruitController {
 	}
 	
 	@RequestMapping("/ListeFruits")
-	public String listeFruits(ModelMap modelMap)
-	{
-		List<Fruit> frs = fruitService.getAllFruits();
-		modelMap.addAttribute("fruits", frs);
-		return "listeFruits";
-	}
+	public String listeFruits(ModelMap modelMap,
+			@RequestParam (name="page",defaultValue = "0") int page,
+			@RequestParam (name="size", defaultValue = "2") int size)
+			{
+			Page<Fruit> frs = fruitService.getAllFruitsParPage(page, size);
+			modelMap.addAttribute("fruits", frs);
+			 modelMap.addAttribute("pages", new int[frs.getTotalPages()]);
+			modelMap.addAttribute("currentPage", page);
+			return "listeFruits";
+			}
+
 	
 	@RequestMapping("/supprimerFruit")
 	public String supprimerFruit(@RequestParam("id") Long id,
-	 ModelMap modelMap)
+	ModelMap modelMap,
+	@RequestParam (name="page",defaultValue = "0") int page,
+	@RequestParam (name="size", defaultValue = "2") int size)
 	{
-		fruitService.deleteFruitById(id);
-		List<Fruit> frs = fruitService.getAllFruits();
-		modelMap.addAttribute("fruits", frs);
-		return "listeFruits";
+	fruitService.deleteFruitById(id);
+	Page<Fruit> frs = fruitService.getAllFruitsParPage(page,
+	size);
+	modelMap.addAttribute("fruits", frs);
+	modelMap.addAttribute("pages", new int[frs.getTotalPages()]);
+	modelMap.addAttribute("currentPage", page);
+	modelMap.addAttribute("size", size);
+	return "listeFruits";
 	}
+
 	
 	@RequestMapping("/modifierFruit")
 	public String editerFruit(@RequestParam("id") Long id,ModelMap modelMap)
