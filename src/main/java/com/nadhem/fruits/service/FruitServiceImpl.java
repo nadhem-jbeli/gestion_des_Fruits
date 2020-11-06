@@ -66,5 +66,10 @@ public class FruitServiceImpl implements FruitService {
 	public List<Fruit> trierFruitsNomsPrix() {
 		return fruitRepository.TrierFruitsNomsPrix();
 	}
+	@Override
+	public List<Fruit> findByVendeurIdVend(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
