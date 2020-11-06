@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 
 import com.nadhem.fruits.entities.Fruit;
+import com.nadhem.fruits.entities.Vendeur;
 import com.nadhem.fruits.repos.FruitRepository;
 import com.nadhem.fruits.service.FruitService;
 @SpringBootTest
@@ -47,6 +48,58 @@ class FruitsApplicationTests {
 				System.out.println(f);
 		}
 	}
+	@Test
+	public void testFindByNomFruit()
+	{
+		List<Fruit> frs = fruitRepository.findByNomFruit("fraise");
+		for (Fruit f : frs)
+		{
+			System.out.println(f);
+		}
+	}
+	@Test
+	public void testFindByNomFruitContains ()
+	{
+		List<Fruit> frs=fruitRepository.findByNomFruitContains("fraise");
+		for (Fruit f : frs)
+		{
+			System.out.println(f);
+		}
+	}
+	
+	@Test
+	public void testfindByVendeur()
+	{
+		Vendeur vend = new Vendeur();
+		vend.setIdVend(1L);
+		List<Fruit> frs = fruitRepository.findByVendeur(vend);
+		for (Fruit p : frs)
+		{
+			System.out.println(p);
+		}
+	}
+	
+	@Test
+	public void testfindByOrderByNomFruitAsc()
+	{
+		List<Fruit> frs = fruitRepository.findByOrderByNomFruitAsc();
+		for (Fruit f : frs)
+		{
+			System.out.println(f);
+		}
+	}
+	
+	@Test
+	public void testTrierFruitsNomsPrix()
+	{
+		List<Fruit> frs = fruitRepository.TrierFruitsNomsPrix();
+		for (Fruit f : frs)
+		{
+			System.out.println(f);
+		}
+	}
+
+
 	
 
 }

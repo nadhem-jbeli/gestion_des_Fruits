@@ -12,16 +12,16 @@ import com.nadhem.fruits.service.FruitService;
 
 @SpringBootApplication
 public class FruitsApplication implements CommandLineRunner {
-@Autowired
-FruitService fruitService;
-public static void main(String[] args) {
-SpringApplication.run(FruitsApplication.class, args);
-}
-@Override
-public void run(String... args) throws Exception {
-fruitService.saveFruit(new Fruit("pomme", 2600.0,50.0, new Date()));
-fruitService.saveFruit(new Fruit("orange", 2800.0,50.0, new Date()));
-fruitService.saveFruit(new Fruit("fraise", 900.0,50.0, new Date()));
-}
+	@Autowired
+	FruitService fruitService;
+	public static void main(String[] args) {
+	SpringApplication.run(FruitsApplication.class, args);
+	}
+	@Override
+	public void run(String... args) throws Exception {
+		/*fruitService.saveFruit(new Fruit("pomme", 2600.0,50.0, new Date()));
+		fruitService.saveFruit(new Fruit("orange", 2800.0,50.0, new Date()));
+		fruitService.saveFruit(new Fruit("fraise", 900.0,50.0, new Date()));*/
+	}
 }
 

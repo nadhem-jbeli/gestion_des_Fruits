@@ -6,6 +6,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.nadhem.fruits.entities.Fruit;
+import com.nadhem.fruits.entities.Vendeur;
 import com.nadhem.fruits.repos.FruitRepository;
 @Service
 public class FruitServiceImpl implements FruitService {
@@ -29,10 +30,41 @@ public class FruitServiceImpl implements FruitService {
 	public List<Fruit> getAllFruits() {
 		return fruitRepository.findAll();
 	}
-	
+
+
 	@Override
 	public Page<Fruit> getAllFruitsParPage(int page, int size) {
 		// TODO Auto-generated method stub
 		return fruitRepository.findAll(PageRequest.of(page, size));
 	}
+	
+	@Override
+	public List<Fruit> findByNomFruit(String nom) {
+		return fruitRepository.findByNomFruit(nom);
+	}
+	@Override
+	public List<Fruit> findByNomFruitContains(String nom) {
+		return fruitRepository.findByNomFruitContains(nom);
+	}
+	@Override
+	public List<Fruit> findByNomPrix(String nom, Double prix) {
+		return fruitRepository.findByNomPrix(nom, prix);
+	}
+	@Override
+	public List<Fruit> findByVendeur(Vendeur vendeur) {
+		return fruitRepository.findByVendeur(vendeur);
+	}
+	/*@Override
+	public List<Fruit> findByVendeurIdVend(Long id) {
+		return fruitRepository.findByVendeurIdVend(id);
+	}*/
+	@Override
+	public List<Fruit> findByOrderByNomFruitAsc() {
+		return fruitRepository.findByOrderByNomFruitAsc();
+	}
+	@Override
+	public List<Fruit> trierFruitsNomsPrix() {
+		return fruitRepository.TrierFruitsNomsPrix();
+	}
+	
 }
