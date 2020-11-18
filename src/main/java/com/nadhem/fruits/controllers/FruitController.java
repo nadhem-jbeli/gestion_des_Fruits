@@ -44,15 +44,15 @@ public class FruitController {
 	
 	@RequestMapping("/ListeFruits")
 	public String listeFruits(ModelMap modelMap,
-			@RequestParam (name="page",defaultValue = "0") int page,
-			@RequestParam (name="size", defaultValue = "2") int size)
-			{
-			Page<Fruit> frs = fruitService.getAllFruitsParPage(page, size);
-			modelMap.addAttribute("fruits", frs);
-			 modelMap.addAttribute("pages", new int[frs.getTotalPages()]);
-			modelMap.addAttribute("currentPage", page);
-			return "listeFruits";
-			}
+	@RequestParam (name="page",defaultValue = "0") int page,
+	@RequestParam (name="size", defaultValue = "2") int size)
+	{
+		Page<Fruit> frs = fruitService.getAllFruitsParPage(page, size);
+		modelMap.addAttribute("fruits", frs);
+		modelMap.addAttribute("pages", new int[frs.getTotalPages()]);
+		modelMap.addAttribute("currentPage", page);
+		return "listeFruits";
+	}
 
 	
 	@RequestMapping("/supprimerFruit")

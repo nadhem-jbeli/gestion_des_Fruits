@@ -54,10 +54,10 @@ public class FruitServiceImpl implements FruitService {
 	public List<Fruit> findByVendeur(Vendeur vendeur) {
 		return fruitRepository.findByVendeur(vendeur);
 	}
-	/*@Override
+	@Override
 	public List<Fruit> findByVendeurIdVend(Long id) {
 		return fruitRepository.findByVendeurIdVend(id);
-	}*/
+	}
 	@Override
 	public List<Fruit> findByOrderByNomFruitAsc() {
 		return fruitRepository.findByOrderByNomFruitAsc();
@@ -66,10 +66,6 @@ public class FruitServiceImpl implements FruitService {
 	public List<Fruit> trierFruitsNomsPrix() {
 		return fruitRepository.TrierFruitsNomsPrix();
 	}
-	@Override
-	public List<Fruit> findByVendeurIdVend(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 }

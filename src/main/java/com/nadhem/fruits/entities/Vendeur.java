@@ -24,7 +24,7 @@ public class Vendeur {
 	@JsonIgnore
 	@OneToMany(mappedBy = "vendeur")
 	private List<Fruit> fruits;
-	public Vendeur() {}
+	
 	public Vendeur(String nomVend, int telVend, List<Fruit> fruits)
 	{
 		super();
@@ -56,4 +56,8 @@ public class Vendeur {
 	public void setFruits(List<Fruit> fruits) {
 		this.fruits = fruits;
 	}
+	@JsonIgnore
+	@OneToMany(mappedBy = "vendeur")
+	private List<Fruit> fruit;
+
 }
